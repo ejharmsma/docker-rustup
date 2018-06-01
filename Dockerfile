@@ -13,6 +13,8 @@ RUN apt-get update && \
         curl \ 
         file \
         gcc \
+        build-essential \
+        musl-tools \
         libc6-dev && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/
