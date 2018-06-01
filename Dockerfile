@@ -21,8 +21,17 @@ RUN apt-get update && \
 
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y --no-modify-path
 
-# TODO: This should be a separate build?
-RUN rustup target add x86_64-unknown-linux-musl
+# Important: use commands like below to install the desired targets and/or toolchains:
+
+# MUSL stable (static compiled standalone binaries):
+# RUN rustup target add x86_64-unknown-linux-musl
+
+# MUSL nightly
+# RUN rustup toolchain install nightly && \
+#     rustup default nightly && \
+#     rustup target add x86_64-unknown-linux-musl
+
+# Or all available tags at https://hub.docker.com/r/ejharmsma/rustup/tags/
+# and sources at https://github.com/ejharmsma/docker-rustup
 
 CMD cargo
-
